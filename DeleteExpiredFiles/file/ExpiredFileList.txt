@@ -1,0 +1,13 @@
+7,*.log,C:\wiz\logs\TwitterStreaming
+14,*.log,C:\wiz\logs\Backup
+14,*.log,C:\wiz\logs\BatchSPA
+14,*.log,C:\wiz\logs\CreateTemplateAPIData
+14,*.log,C:\wiz\logs\GetHachtagSample
+14,*.log,C:\wiz\logs\MailJobs
+14,*.log,C:\wiz\logs\MDataBackup
+14,*.log,C:\wiz\logs\PointSummaryOutput
+14,*.log,C:\wiz\logs\UpdateAllTalent
+14,*.log,C:\wiz\logs\UpdateDailyMData
+14,*.log,C:\wiz\logs\UpdateMData
+14,*.log,C:\wiz\logs\UpdateOriconInfo
+7,*.xml,C:\wiz\Container\xml_mdata\xml_mdata_bk

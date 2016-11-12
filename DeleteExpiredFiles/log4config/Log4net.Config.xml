@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <log4net>
+
+    <!-- コンソール出力用 (VS 上 [出力] ウインドウへの出力) -->
+    <appender name="ConsoleAppender" type="log4net.Appender.ConsoleAppender">
+      <!-- 出力文字列のフォーマット -->
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="ConversionPattern" value="%d{yyyy/MM/dd,HH:mm:ss.fff},%t,%p,%m%n" />
+      </layout>
+    </appender>
+
+    <!-- 通常ログ：単一ファイル出力 -->
+    <appender name="InfoLogDailyAppender" type="log4net.Appender.RollingFileAppender">
+      <!--複数プロセスから同時にアクセスできるようにする-->
+      <lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+      <param name="File" value="logs\\Info_" />
+      <param name="DatePattern" value='yyyyMMdd".log"' />
+      <param name="RollingStyle" value="date" />
+      <param name="StaticLogFileName" value="false" />
+
+      <param name="AppendToFile" value="true" />
+
+      <filter type="log4net.Filter.LevelRangeFilter">
+        <param name="LevelMax" value="WARN" />
+        <param name="LevelMin" value="INFO" />
+      </filter>
+
+      <param name="MaximumFileSize" value="10MB" />
+      <param name="MaxSizeRollBackups" value="10" />
+
+      <layout type="log4net.Layout.PatternLayout">
+        <ConversionPattern value="%date [%thread] [%-5level] %logger - %message%n" />
+      </layout>
+    </appender>
+
+    <!-- エラーログ：分割ファイル出力 -->
+    <appender name="ErrorLogDailyAppender" type="log4net.Appender.RollingFileAppender">
+      <!--複数プロセスから同時にアクセスできるようにする-->
+      <lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+      <!-- ファイル名は日付ごと -->
+      <param name="File" value="logs\\Error_" />
+      <param name="DatePattern" value='yyyyMMdd".log"' />
+      <param name="RollingStyle" value="date" />
+      <param name="StaticLogFileName" value="false" />
+
+      <param name="AppendToFile" value="true" />
+
+      <filter type="log4net.Filter.LevelRangeFilter">
+        <param name="LevelMax" value="FATAL" />
+        <param name="LevelMin" value="ERROR" />
+      </filter>
+
+      <param name="MaximumFileSize" value="10MB" />
+      <param name="MaxSizeRollBackups" value="10" />
+
+      <layout type="log4net.Layout.PatternLayout">
+        <ConversionPattern value="%date [%thread] [%-5level] %logger %file(%line) %class %method - %message%n" />
+      </layout>
+    </appender>
+
+    <!-- デバッグ用：分割ファイル出力 -->
+    <appender name="DebugLogDailyAppender" type="log4net.Appender.RollingFileAppender">
+      <!--複数プロセスから同時にアクセスできるようにする-->
+      <lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+
+      <!-- ファイル名は日付ごと -->
+      <param name="File" value="logs\\Trace_" />
+      <param name="DatePattern" value='yyyyMMdd".log"' />
+      <param name="RollingStyle" value="date" />
+      <param name="StaticLogFileName" value="false" />
+
+      <param name="AppendToFile" value="true" />
+      <param name="MaximumFileSize" value="10MB" />
+      <param name="MaxSizeRollBackups" value="10" />
+
+      <layout type="log4net.Layout.PatternLayout">
+        <ConversionPattern value="%date %class %method - %message%n" />
+      </layout>
+
+      <!-- 出力するログ レベルのフィルタ -->
+      <filter type="log4net.Filter.LevelRangeFilter">
+        <levelMin value="DEBUG" />
+        <levelMax value="FATAL" />
+      </filter>
+
+    </appender>
+
+    <!-- 色つきコンソール出力 -->
+    <appender name="ColoredConsole"  type="log4net.Appender.ColoredConsoleAppender">
+      <mapping>
+        <level value="FATAL" />
+        <foreColor value="White" />
+        <backColor value="Red,HighIntensity" />
+      </mapping>
+      <mapping>
+        <level value="ERROR" />
+        <foreColor value="White" />
+        <backColor value="Red,HighIntensity" />
+      </mapping>
+      <mapping>
+        <level value="WARN" />
+        <foreColor value="Purple" />
+        <backColor value="White,HighIntensity" />
+      </mapping>
+      <mapping>
+        <level value="INFO" />
+        <foreColor value="White" />
+        <backColor value="Blue,HighIntensity" />
+      </mapping>
+      <!--<mapping>
+        <level value="DEBUG" />
+        <foreColor value="White" />
+        <backColor value="Green,HighIntensity" />
+      </mapping>-->
+
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%d[%t] %p - %m%n"/>
+      </layout>
+    </appender>
+
+
+    <root>
+      <!-- TRACE以上のログを記録 -->
+      <level value="ALL" />
+      <!-- 使用する Appender -->
+      <!--<appender-ref ref="ConsoleAppender" />-->
+      <appender-ref ref="InfoLogDailyAppender" />
+      <appender-ref ref="ErrorLogDailyAppender" />
+      <appender-ref ref="DebugLogDailyAppender" />
+      <appender-ref ref="ColoredConsole" />
+    </root>
+
+  </log4net>
+</configuration>

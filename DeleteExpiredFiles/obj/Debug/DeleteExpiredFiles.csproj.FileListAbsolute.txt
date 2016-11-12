@@ -1,0 +1,1 @@
+C:\pj\Test\gittest\DeleteExpiredFiles\DeleteExpiredFiles\bin\Debug\DeleteExpiredFiles.exe.config

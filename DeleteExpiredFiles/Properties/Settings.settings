@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DeleteExpiredFiles.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConfigPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\temp\ExpiredFileList.txt</Value>
+    </Setting>
+    <Setting Name="MailServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#MailServer#</Value>
+    </Setting>
+    <Setting Name="MailUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#MailServer_ID#</Value>
+    </Setting>
+    <Setting Name="MailPass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#MailServer_PASS#</Value>
+    </Setting>
+    <Setting Name="MailPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="MailFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#MailAddress#</Value>
+    </Setting>
+    <Setting Name="MailTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#MailAddress#</Value>
+    </Setting>
+    <Setting Name="RunServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">#ServerName#</Value>
+    </Setting>
+    <Setting Name="DevFlg" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
